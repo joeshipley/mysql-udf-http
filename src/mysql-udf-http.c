@@ -6,19 +6,19 @@
 #include <curl/curl.h>
 #include "mysql-udf-http.h"
 
-my_bool http_get_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
+_Bool http_get_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
 char *http_get(UDF_INIT *initid, UDF_ARGS *args, char *result, unsigned long *length, char *is_null, char *error);
 void http_get_deinit(UDF_INIT *initid);
 
-my_bool http_post_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
+_Bool http_post_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
 char *http_post(UDF_INIT *initid, UDF_ARGS *args, char *result, unsigned long *length, char *is_null, char *error);
 void http_post_deinit(UDF_INIT *initid);
 
-my_bool http_put_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
+_Bool http_put_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
 char *http_put(UDF_INIT *initid, UDF_ARGS *args, char *result, unsigned long *length, char *is_null, char *error);
 void http_put_deinit(UDF_INIT *initid);
 
-my_bool http_delete_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
+_Bool http_delete_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
 char *http_delete(UDF_INIT *initid, UDF_ARGS *args, char *result, unsigned long *length, char *is_null, char *error);
 void http_delete_deinit(UDF_INIT *initid);
 
@@ -50,7 +50,7 @@ result_cb(void *ptr, size_t size, size_t nmemb, void *data)
 
 /* ------------------------HTTP GET----------------------------- */
 
-my_bool http_get_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+_Bool http_get_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
   st_curl_results *container;
 
@@ -120,7 +120,7 @@ void http_get_deinit(UDF_INIT *initid)
 
 /* ------------------------HTTP POST----------------------------- */
 
-my_bool http_post_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+_Bool http_post_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
   st_curl_results *container;
 
@@ -195,7 +195,7 @@ void http_post_deinit(UDF_INIT *initid)
 
 /* ------------------------HTTP PUT----------------------------- */
 
-my_bool http_put_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+_Bool http_put_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
   st_curl_results *container;
 
@@ -271,7 +271,7 @@ void http_put_deinit(UDF_INIT *initid)
 
 /* ------------------------HTTP DELETE----------------------------- */
 
-my_bool http_delete_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+_Bool http_delete_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
   st_curl_results *container;
 
