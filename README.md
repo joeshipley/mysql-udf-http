@@ -79,7 +79,7 @@ SELECT http_delete('<url>');
 ```
 mysql>
 
-SELECT http_get('https://google.com');
+select cAST(http_get("https://google.com")  AS CHAR(10000) CHARACTER SET utf8)
 ```
 
 ### 5. How to drop the UDF function
