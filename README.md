@@ -40,12 +40,12 @@ apt-get install libcurl4-gnutls-dev
 
 ### 1. Install on Linux
 
-This sample is written for "/usr/local/webserver/mysql/" is your MySQL install path.
+This sample is written for "/usr/bin/mysql/" is your MySQL install path.
 
 ```
 wget https://github.com/AfifAhmad/mysql-udf-http/archive/refs/heads/master.zip
 unzip master.zip -d master
-cd master/mysql-udf-http-1.0/
+cd master/mysql-udf-http-master/
 ./configure --prefix=/usr/ --with-mysql=/usr/bin/mysql_config
 make && make install
 cd ../
