@@ -6,6 +6,8 @@ MySQL User-defined function (UDF) for HTTP REST
 **Note:** It is a fork repository. Original Website is below.  
 http://code.google.com/p/mysql-udf-http
 
+This fork is set up so http_post sends application/json instead of application/x-www-form-urlencoded, which you can send with MySQL's built-in JSON_OBJECT or JSON_ARRAY functions.
+
 ## Overview
 
 | HTTP Method | CRUD Action |      Description       |
@@ -69,8 +71,8 @@ create function http_delete returns string soname 'mysql-udf-http.so';
 ```
 mysql>
 SELECT http_get('<url>');
-SELECT http_post('<url>', '<data>');
-SELECT http_put('<url>', '<data>');
+SELECT http_post('<url>', JSON_OBJECT('<data>','<value>'));
+SELECT http_put('<url>');
 SELECT http_delete('<url>');
 ```
 
@@ -79,7 +81,7 @@ SELECT http_delete('<url>');
 ```
 mysql>
 
-select cAST(http_get("https://google.com")  AS CHAR(10000) CHARACTER SET utf8)
+select http_post("https://httpbin.org/post",  JSON_OBJECT('id', 87, 'name', 'carrot'));
 ```
 
 ### 5. How to drop the UDF function
